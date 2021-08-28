@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 const Item = () => {
-    return (
-        <div>
-            Item
-        </div>
-    );
-}
+  return <div>Item</div>;
+};
 
 export default Item;
