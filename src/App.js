@@ -1,3 +1,4 @@
+import React from "react";
 import User from './User/User';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
@@ -6,13 +7,13 @@ import './App.css';
 
 const App = () => {
   return (
-    <div>
+    <>
       <div className="App">Hello</div>
       <User id={1} name='name' />
       <Header />
       <List />
       <Footer />
-    </div>
+    </>
   );
 }
 

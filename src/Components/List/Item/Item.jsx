@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-const Item = () => {
-  return <div>Item</div>;
+const Item = (props) => {
+  const item = props.item;
+  return (
+    <div>
+      <input type="checkbox" name="done" id="done" />
+      {item.todo}
+    </div>
+  );
 };
 
 export default Item;

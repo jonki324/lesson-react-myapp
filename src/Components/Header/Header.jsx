@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <>
+      <input type="text" name="todo" id="todo" />
+      <button>Add</button>
+    </>
+  );
 };
 
 export default Header;
