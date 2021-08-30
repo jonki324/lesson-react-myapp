@@ -5,7 +5,7 @@ const Item = (props) => {
   return (
     <div>
       <input type="checkbox" name="done" id="done" />
-      {item.todo}
+      <label htmlFor="done">{item.todo}</label>
     </div>
   );
 };
