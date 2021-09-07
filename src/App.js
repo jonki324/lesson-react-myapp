@@ -1,20 +1,21 @@
-import React from "react";
-import User from './User/User';
+import React, { useReducer } from 'react';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
-import List from './Components/List/List';
+import TodoList from './Components/TodoList/TodoList';
 import './App.css';
+import TodoContext from './Contexts/TodoContext';
+import TodoReducer from './Reducers/TodoReducer';
 
 const App = () => {
+  const [state, dispatch] = useReducer(TodoReducer, []);
   return (
-    <>
-      <div className="App">Hello</div>
-      <User id={1} name='name' />
+    <TodoContext.Provider value={{ state, dispatch }}>
+      <h1 className="App">TodoList</h1>
       <Header />
-      <List />
+      <TodoList />
       <Footer />
-    </>
+    </TodoContext.Provider>
   );
-}
+};
 
 export default App;
