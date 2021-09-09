@@ -1,29 +1,51 @@
 import {
   CREATE_TODO,
-  DONE_TODO,
+  UPDATE_TODO,
+  FILTER_TODO,
   DELETE_TODO,
   DELETE_ALL_TODO,
+  TOGGLE_ALL_COMPLETED,
 } from '../Actions/TodoAction';
 
-const initialState = [];
+export const initialState = {
+  todoList: [],
+  filter: { keyword: '', removeCompleted: false },
+};
 
 const TodoReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_TODO: {
-      const id = state.length === 0 ? 1 : state[state.length - 1].id + 1;
-      const todo = { id, body: action.body, isDone: false };
-      return [...state, todo];
+      const todoList = state.todoList;
+      const id =
+        todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1;
+      const todo = { ...action.payload, id };
+      return { ...state, todoList: [...todoList, todo] };
     }
-    case DONE_TODO: {
-      return state.map((todo) =>
-        todo.id === action.id ? { ...todo, isDone: action.isDone } : todo
+    case UPDATE_TODO: {
+      const todoList = state.todoList.map((todo) =>
+        todo.id === action.payload.id ? action.payload : todo
       );
+      return { ...state, todoList };
+    }
+    case FILTER_TODO: {
+      return { ...state, filter: action.payload };
     }
     case DELETE_TODO: {
-      return state.filter((todo) => todo.id !== action.id);
+      const todoList = state.todoList.filter(
+        (todo) => todo.id !== action.payload.id
+      );
+      return { ...state, todoList };
     }
     case DELETE_ALL_TODO: {
-      return state.filter((todo) => !todo.isDone);
+      const todoList = state.todoList.filter((todo) => !todo.isCompleted);
+      return { ...state, todoList };
+    }
+    case TOGGLE_ALL_COMPLETED: {
+      const todoList = state.todoList.map((todo) => {
+        todo.isCompleted = action.payload;
+        return todo;
+      });
+      return { ...state, todoList };
     }
     default: {
       return state;

@@ -1,15 +1,23 @@
 import React, { Fragment, useContext } from 'react';
-import TodoContext from '../../Contexts/TodoContext';
-import Todo from './Todo/Todo';
+import { TodoContext } from '../../Contexts/TodoContext';
+import Todo from '../Todo/Todo';
 
 const TodoList = () => {
   const { state } = useContext(TodoContext);
+  const { todoList, filter } = state;
 
   return (
     <Fragment>
-      {state.map((todo, index) => {
-        return <Todo key={index} todo={todo} />;
-      })}
+      {todoList
+        .filter((todo) => (filter.removeCompleted ? !todo.isCompleted : true))
+        .filter((todo) =>
+          filter.keyword !== ''
+            ? todo.body.indexOf(filter.keyword) !== -1
+            : true
+        )
+        .map((todo) => (
+          <Todo key={todo.id} todo={todo} />
+        ))}
     </Fragment>
   );
 };
