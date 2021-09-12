@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TodoContext } from '../../Contexts/TodoContext';
+import { TodoContext } from '../../Store/Store';
 import {
   DELETE_ALL_TODO,
   TOGGLE_ALL_COMPLETED,

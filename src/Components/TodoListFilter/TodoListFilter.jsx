@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TodoContext } from '../../Contexts/TodoContext';
+import { TodoContext } from '../../Store/Store';
 import { FILTER_TODO } from '../../Actions/TodoAction';
 
 const TodoListFilter = () => {

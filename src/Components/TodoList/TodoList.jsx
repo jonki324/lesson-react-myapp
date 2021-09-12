@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { TodoContext } from '../../Contexts/TodoContext';
+import { TodoContext } from '../../Store/Store';
 import Todo from '../Todo/Todo';
 
 const TodoList = () => {

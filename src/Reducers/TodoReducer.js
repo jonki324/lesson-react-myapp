@@ -7,12 +7,7 @@ import {
   TOGGLE_ALL_COMPLETED,
 } from '../Actions/TodoAction';
 
-export const initialState = {
-  todoList: [],
-  filter: { keyword: '', removeCompleted: false },
-};
-
-const TodoReducer = (state = initialState, action) => {
+const TodoReducer = (state, action) => {
   switch (action.type) {
     case CREATE_TODO: {
       const todoList = state.todoList;
