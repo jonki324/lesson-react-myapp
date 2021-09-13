@@ -1,10 +1,18 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
+import { FETCH_ALL_TODO } from '../../Actions/TodoAction';
+import { fetchTodoList } from '../../Services/TodoService';
 import { TodoContext } from '../../Store/Store';
 import Todo from '../Todo/Todo';
 
 const TodoList = () => {
-  const { state } = useContext(TodoContext);
+  const { state, dispatch } = useContext(TodoContext);
   const { todoList, filter } = state;
+
+  useEffect(() => {
+    fetchTodoList().then(({ data }) => {
+      dispatch({ type: FETCH_ALL_TODO, payload: data });
+    });
+  }, []);
 
   return (
     <Fragment>

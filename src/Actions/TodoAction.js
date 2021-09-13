@@ -4,3 +4,4 @@ export const FILTER_TODO = 'FILTER_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
 export const DELETE_ALL_TODO = 'DELETE_ALL_TODO';
 export const TOGGLE_ALL_COMPLETED = 'TOGGLE_ALL_COMPLETED';
+export const FETCH_ALL_TODO = 'FETCH_ALL_TODO';

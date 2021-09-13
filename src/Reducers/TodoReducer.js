@@ -5,6 +5,7 @@ import {
   DELETE_TODO,
   DELETE_ALL_TODO,
   TOGGLE_ALL_COMPLETED,
+  FETCH_ALL_TODO,
 } from '../Actions/TodoAction';
 
 const TodoReducer = (state, action) => {
@@ -41,6 +42,9 @@ const TodoReducer = (state, action) => {
         return todo;
       });
       return { ...state, todoList };
+    }
+    case FETCH_ALL_TODO: {
+      return { ...state, todoList: action.payload };
     }
     default: {
       return state;

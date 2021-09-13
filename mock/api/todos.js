@@ -2,26 +2,26 @@ module.exports = [
   {
     id: 1,
     body: 'Todo01',
-    isDone: false,
+    isCompleted: false,
   },
   {
     id: 2,
     body: 'Todo02',
-    isDone: true,
+    isCompleted: true,
   },
   {
     id: 3,
     body: 'Todo03',
-    isDone: true,
+    isCompleted: true,
   },
   {
     id: 4,
     body: 'Todo04',
-    isDone: false,
+    isCompleted: false,
   },
   {
     id: 5,
     body: 'Todo05',
-    isDone: false,
+    isCompleted: false,
   },
 ];
